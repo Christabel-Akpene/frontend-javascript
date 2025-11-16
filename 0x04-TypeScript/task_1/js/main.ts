@@ -28,4 +28,48 @@ const director1: Directors = {
   numberOfReports: 17,
 };
 
-console.log(director1)
+console.log(director1);
+
+interface printTeacherFunction {
+  (firstName: string, lastName: string) : string;
+}
+
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName} ${lastName}`
+}
+
+
+console.log(printTeacher("John", "Doe"))
+
+
+interface studentConstructor {
+  new (firstName: string, lastName: string): studentInterface
+}
+
+interface studentInterface{
+  firstName: string,
+  lastName: string,
+  workOnHomework() : string,
+  displayName() : string
+}
+
+
+class Student implements studentInterface{
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string){
+    this.firstName = firstName;
+    this.lastName = lastName;
+
+  }
+
+  
+    workOnHomework(): string {
+      return "Currently working"
+    }
+
+    displayName(): string {
+      return this.firstName
+    }
+}
